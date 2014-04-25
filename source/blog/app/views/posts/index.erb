@@ -1,0 +1,13 @@
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+  <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+
+
+  <% if logged_in? && @current_user.id == post.user_id %>
+    <h4><a href="/posts/edit/<%= post.id %>">Edit Post</a><h4>
+    <hr>
+
+  <% end %>
+<% end %>
+

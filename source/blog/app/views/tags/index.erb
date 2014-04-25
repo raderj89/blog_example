@@ -1,0 +1,8 @@
+<% @tags.each do |tag| %>
+  <h1>Posts tagged with: <%= tag.name %></h1>
+    <ul>
+      <% tag.posts.each do |post| %>
+        <li><a href="posts/<%= post.id %>"><%= post.title%></a></li>
+      <% end %>
+    </ul>
+<% end %>

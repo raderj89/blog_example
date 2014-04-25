@@ -30,7 +30,7 @@ before "/posts/:id" do
 end
 
 get '/' do
-  @posts = Post.order('created_at DESC')
+  @posts = Post.paginate(:page => params[:page]).order('created_at DESC')
 
   erb :"posts/index"
 end

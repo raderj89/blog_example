@@ -19,6 +19,9 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'sinatra/flash'
 require 'erb'
+require 'will_paginate'
+require 'will_paginate/active_record'
+require 'will_paginate-bootstrap'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

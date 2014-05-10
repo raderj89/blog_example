@@ -1,15 +1,25 @@
 <h1>All Posts</h1>
 
-<% @posts.each do |post| %>
-  <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+<br>
+<a class="godzilla" href="/posts/godzillaed">Tagged Godzilla</a>
+<br>
 
+<hr>
+
+<div class="posts">
+<% @posts.each do |post| %>
+  <h2><a class="post" href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+  <% post.tags.each do |tag| %>
+    <a href="#"> -- <%= tag.name %></a>
+  <% end %>
 
   <% if logged_in? && @current_user.id == post.user_id %>
-    <h4><a href="/posts/edit/<%= post.id %>">Edit Post</a><h4>
+    <h4><a href="/posts/<%= post.id %>/edit">Edit Post</a><h4>
     <hr>
 
   <% end %>
 <% end %>
+</div>
 
 <%= will_paginate @posts, renderer: BootstrapPagination::Sinatra %>
 

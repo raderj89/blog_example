@@ -1,0 +1,8 @@
+<h1><%= @user.name %></h1>
+<h4><%= @user.email %></h4>
+
+<% unless @user.posts.nil? %>
+  <% @user.posts.each do |post| %>
+    <h1><a href="/posts/<%= post.id %>"><%= post.title %></a></h1>
+  <% end %>
+<% end %>

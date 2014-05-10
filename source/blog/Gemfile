@@ -1,0 +1,32 @@
+source 'https://rubygems.org'
+
+# PostgreSQL driver
+gem 'pg'
+gem 'faker'
+# Sinatra driver
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'bcrypt'
+gem 'sinatra-flash'
+
+# Use Thin for our web server
+gem 'thin'
+
+gem 'activesupport'
+gem 'activerecord'
+
+gem 'rake'
+
+gem 'shotgun'
+gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'
+
+group :test do
+  gem 'faker'
+  gem 'rspec'
+end
+
+group :development do
+  gem 'pry-rails'
+  gem 'pry'
+end

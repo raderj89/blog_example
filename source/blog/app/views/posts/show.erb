@@ -1,0 +1,16 @@
+<h1><%= @post.title %></h1>
+By <%= @post.user.name %><br>
+
+<% if current_user && current_user.id == @post.user_id %>
+  <a class="btn btn-default" href="/posts/<%= @post.id %>/edit">Edit Post</a>
+  <form action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="btn btn-danger" type="submit" value="Delete Post">
+  </form>
+<% end %>
+<br>
+<br>
+<p><%= @post.body %></p>
+<% @post.tags.each do |tag| %>
+  <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a></li>
+<% end %>
